@@ -1,0 +1,45 @@
+[
+  {
+    "chatId": 1,
+    "contactName": "Tara Ade",
+    "profilePic": "shaw",
+    "messages": [
+      {
+        "sender": "Tara Ade",
+        "text": "Hey, how's it going?",
+        "time": "10:30 AM"
+      },
+      {
+        "sender": "You",
+        "text": "I'm good, how about you?",
+        "time": "10:31 AM"
+      }
+    ]
+  },
+  {
+    "chatId": 2,
+    "contactName": "Stella Page",
+    "profilePic": "peace",
+    "messages": [
+      {
+        "sender": "Stella Page",
+        "text": "Meeting at 3 PM today?",
+        "time": "9:00 AM"
+      },
+      { "sender": "You", "text": "Yes, I'll be there.", "time": "9:05 AM" }
+    ]
+  },
+  {
+    "chatId": 3,
+    "contactName": "Andrew Lewis",
+    "profilePic": "ini",
+    "messages": [
+      {
+        "sender": "Stella Page",
+        "text": "Meeting at 3 PM today?",
+        "time": "9:00 AM"
+      },
+      { "sender": "You", "text": "Yes, I'll be there.", "time": "9:05 AM" }
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "sender": "Tara Ade",
+    "profilePic": "shaw",
+    "messageSnippet": "Yes, you can send it.",
+    "timePosted": "1 hr",
+    "messages": [
+      { "sender": "You", "text": "Hey Tara", "time": "3:00 PM" },
+      { "sender": "Tara Ade", "text": "Hey there!", "time": "3:01 PM" },
+      {
+        "sender": "You",
+        "text": "I still need help with the coding issue. Can I send you a picture of it?",
+        "time": "3:05 PM"
+      },
+      {
+        "sender": "Tara Ade",
+        "text": "Yes, you can send it.",
+        "time": "3:10 PM"
+      },
+      {
+        "sender": "You",
+        "text": "Please take a look at this.",
+        "time": "3:15 PM"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "sender": "Stella Page",
+    "profilePic": "peace",
+    "messageSnippet": "Meeting at 3 PM today?",
+    "timePosted": "1 hr",
+    "messages": [
+      {
+        "sender": "Stella Page",
+        "text": "Hey, are we still on for the meeting at 3 PM?",
+        "time": "9:00 AM"
+      },
+      {
+        "sender": "You",
+        "text": "Yes, let’s finalize the slides before then.",
+        "time": "9:15 AM"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "sender": "Andrew Lewis",
+    "profilePic": "ini",
+    "messageSnippet": "You're so annoying!!",
+    "timePosted": "3 hrs",
+    "messages": [
+      {
+        "sender": "Andrew Lewis",
+        "text": "Why didn’t you send the update yet?",
+        "time": "12:00 PM"
+      },
+      {
+        "sender": "You",
+        "text": "I’m working on it. Relax!",
+        "time": "12:05 PM"
+      },
+      {
+        "sender": "Andrew Lewis",
+        "text": "You're so annoying!!",
+        "time": "12:10 PM"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "sender": "Gbemi Oshoke",
+    "profilePic": "user2",
+    "messageSnippet": "Let’s fight over it at lunch :(",
+    "timePosted": "7 hrs",
+    "messages": [
+      {
+        "sender": "You",
+        "text": "Do you want pizza or pasta for lunch?",
+        "time": "11:00 AM"
+      },
+      { "sender": "Gbemi Oshoke", "text": "Pizza!", "time": "11:05 AM" },
+      { "sender": "You", "text": "Let’s decide at lunch.", "time": "11:15 AM" },
+      {
+        "sender": "Gbemi Oshoke",
+        "text": "Let’s fight over it at lunch :(",
+        "time": "11:20 AM"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "sender": "Tim Stewart",
+    "profilePic": "rename",
+    "messageSnippet": "Sent the mail yet?",
+    "timePosted": "2 days",
+    "messages": [
+      {
+        "sender": "Tim Stewart",
+        "text": "Did you send the mail to the client?",
+        "time": "10:00 AM, Jan 20"
+      },
+      {
+        "sender": "You",
+        "text": "Not yet. I’ll send it by noon.",
+        "time": "10:10 AM, Jan 20"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "sender": "Grodie Pascal",
+    "profilePic": "mike",
+    "messageSnippet": "Set it up yourself",
+    "timePosted": "Last week",
+    "messages": [
+      {
+        "sender": "You",
+        "text": "Can you help me set up the server?",
+        "time": "2:00 PM, Jan 15"
+      },
+      {
+        "sender": "Grodie Pascal",
+        "text": "Set it up yourself.",
+        "time": "2:05 PM, Jan 15"
+      }
+    ]
+  }
+]

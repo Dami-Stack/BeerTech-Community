@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "name": "Maryam Akin",
+    "img": "mike.png",
+    "isOnline": true
+  },
+  {
+    "id": 2,
+    "name": "Tim Stewarts",
+    "img": "shaw.png",
+    "isOnline": true
+  },
+  {
+    "id": 3,
+    "name": "Gbemi Oshoke",
+    "img": "rename.png",
+    "isOnline": true
+  },
+  {
+    "id": 4,
+    "name": "Andrew Lewis",
+    "img": "user2.png",
+    "isOnline": true
+  },
+  {
+    "id": 5,
+    "name": "Maxwell Ugo",
+    "img": "peace.png",
+    "isOnline": true
+  },
+  {
+    "id": 6,
+    "name": "Peter Smith",
+    "img": "ini.png",
+    "isOnline": true
+  }
+
+  
+]
