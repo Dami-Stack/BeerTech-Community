@@ -8,7 +8,7 @@ import frnt from "../assets/frtend.png";
 import bckend from "../assets/bckend.png";
 import mob from "../assets/mobiledev.png";
 import ui from "../assets/ui.png";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaBars, FaTimes } from "react-icons/fa";
 
 const PostCreate = ({ addNewPost }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +16,7 @@ const PostCreate = ({ addNewPost }) => {
   const [postText, setPostText] = useState("");
   const [mediaPreview, setMediaPreview] = useState(null);
   const [caption, setCaption] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(false); // For mobile sidebar
 
   const dropdownRef = useRef(null); // Ref for outside click detection
 
@@ -84,14 +85,45 @@ const PostCreate = ({ addNewPost }) => {
   }, []);
 
   return (
-    <div className="max-h-screen max-w-screen">
+    <div className="min-h-screen w-full bg-white">
       <Navbar />
-      <div className="grid grid-cols-4">
-        <div className="col-span-1">
+      {/* Hamburger menu for mobile */}
+      <button
+        className="md:hidden fixed top-4 left-4 z-30 bg-white p-2 rounded-full shadow"
+        onClick={() => setSidebarOpen(true)}
+        aria-label="Open sidebar"
+      >
+        <FaBars className="w-6 h-6" />
+      </button>
+      {/* Sidebar drawer for mobile */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 z-40 flex">
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-40"
+            onClick={() => setSidebarOpen(false)}
+          ></div>
+          {/* Sidebar (no hidden/md:block here) */}
+          <div className="relative bg-white w-64 h-full shadow-lg z-50">
+            <button
+              className="absolute top-4 right-4 text-gray-700"
+              onClick={() => setSidebarOpen(false)}
+              aria-label="Close sidebar"
+            >
+              <FaTimes className="w-6 h-6" />
+            </button>
+            <Sidebar />
+          </div>
+        </div>
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-4">
+        {/* Sidebar (leave as is) */}
+        <div className="hidden md:block md:col-span-1">
           <Sidebar />
         </div>
-        <div className="flex flex-col items-center justify-center m-2 sm:m-8 w-full col-span-3">
-          <div className="flex items-center justify-between p-3 w-full max-w-xl lg:max-w-2xl xl:max-w-3xl">
+        {/* Main Section - always centered and responsive */}
+        <div className="col-span-1 md:col-span-3 flex flex-col items-center justify-center px-4 py-6 sm:px-8 sm:py-12 w-full">
+          <div className="flex items-center justify-between p-3 w-full max-w-full sm:max-w-xl lg:max-w-2xl xl:max-w-3xl">
             <div className="flex items-center space-x-4">
               <img src={profile} alt="Profile" className="h-10" />
               <div className="rounded-full px-3 py-1 text-gray-800 border border-gray-950">
@@ -114,7 +146,7 @@ const PostCreate = ({ addNewPost }) => {
                 </div>
               </div>
               {isOpen && (
-                <div className="absolute mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg max-h-56 overflow-y-auto">
+                <div className="absolute mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg max-h-56 overflow-y-auto z-10">
                   {communities.map((community) => (
                     <div
                       key={community.id}
@@ -132,11 +164,10 @@ const PostCreate = ({ addNewPost }) => {
                 </div>
               )}
             </div>
-            {/* End of dropdown */}
           </div>
 
           {/* Text and Media Input */}
-          <div className="bg-gray-100 p-4 rounded-lg w-full max-w-xl lg:max-w-2xl xl:max-w-3xl">
+          <div className="bg-gray-100 p-4 rounded-lg w-full max-w-full sm:max-w-xl lg:max-w-2xl xl:max-w-3xl mb-4">
             {postText || mediaPreview ? (
               <div>
                 <textarea
@@ -184,7 +215,7 @@ const PostCreate = ({ addNewPost }) => {
           </div>
 
           {/* Media Options */}
-          <div className="mt-4 flex justify-between items-center w-full max-w-xl lg:max-w-2xl xl:max-w-3xl">
+          <div className="mt-4 flex justify-between items-center w-full max-w-full sm:max-w-xl lg:max-w-2xl xl:max-w-3xl">
             <label className="flex items-center text-blue-500 hover:text-blue-600 cursor-pointer">
               <input
                 type="file"

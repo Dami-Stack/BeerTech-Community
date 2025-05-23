@@ -89,7 +89,7 @@ const Explore = () => {
       <Navbar />
       <div className="flex">
         {/* Sidebar */}
-        <div className="w-1/4">
+        <div className="md:w-1/4">
           <Sidebar />
         </div>
 
@@ -137,10 +137,11 @@ const Explore = () => {
           <hr className="my-6" />
           {/* Horizontal divider between Communities and Popular Posts */}
           {/* Popular Posts Section */}
-          <div>
+
+          <div className="md:w-1/2">
             <h2 className="text-2xl font-semibold mb-4 ">Popular Posts</h2>
-            <div className="overflow-y-auto max-h-[340px] ">
-              <div className="w-3/5">
+            <div className="overflow-y-auto max-h-[340px]  ">
+              <div className="w-2/5 md:w-4/5 lg:w-full">
                 <PostCard />
               </div>
             </div>

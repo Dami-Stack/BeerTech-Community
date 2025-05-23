@@ -91,16 +91,16 @@ const Notify = () => {
             {notifications.map((notification) => (
               <div
                 key={notification.id}
-                className="flex items-center rounded-full bg-gray-100 p-2 px-5 hover:bg-gray-200"
+                className="flex flex-col sm:flex-row items-center rounded-2xl bg-gray-100 p-2 sm:p-3 md:p-4 hover:bg-gray-200 transition"
               >
                 {/* Icon */}
                 {typeof notification.icon === "function" ? (
-                  <notification.icon className="text-gray-500 w-8 h-8 mr-2" />
+                  <notification.icon className="text-gray-500 w-6 h-6 sm:w-8 sm:h-8 mr-0 sm:mr-2 mb-2 sm:mb-0" />
                 ) : (
                   <img
                     src={notification.icon}
                     alt="notification icon"
-                    className="w-8 h-8 mr-2"
+                    className="w-6 h-6 sm:w-8 sm:h-8 mr-0 sm:mr-2 mb-2 sm:mb-0"
                   />
                 )}
 
@@ -108,21 +108,21 @@ const Notify = () => {
                 <img
                   src={notification.avatar}
                   alt={`${notification.user}'s avatar`}
-                  className="w-14 h-14 rounded-full mr-4"
+                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full mb-2 sm:mb-0 sm:mr-4"
                 />
 
                 {/* Text Content */}
-                <div className="flex-1 space-y-2">
-                  <p className="">
+                <div className="flex-1 space-y-1 text-center sm:text-left">
+                  <p className="text-sm sm:text-base md:text-lg">
                     <strong>{notification.user}</strong> {notification.action}
                   </p>
-                  <p className=" text-gray-800">
+                  <p className="text-gray-800 text-xs sm:text-sm md:text-base">
                     {notification.message}
                   </p>
                 </div>
 
                 {/* Time */}
-                <span className="text-xs text-gray-500">
+                <span className="text-xs text-gray-500 mt-2 sm:mt-0 sm:ml-4">
                   {notification.time}
                 </span>
               </div>

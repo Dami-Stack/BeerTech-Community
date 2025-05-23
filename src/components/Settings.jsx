@@ -12,10 +12,7 @@ const Settings = () => {
   const [gender, setGender] = useState("Male");
   const [privacySettings, setPrivacySettings] = useState([]);
 
-  
-  
   const navigate = useNavigate();
-  
 
   const openModal = (item) => {
     if (!item.modalFields || item.modalFields.length === 0) {
@@ -36,7 +33,7 @@ const Settings = () => {
     setModalData(null);
     setModalFormState({});
   };
-  
+
   const handleMessageTabClick = () => {
     navigate("/Message");
   };
@@ -53,8 +50,6 @@ const Settings = () => {
     console.log("Form Submitted:", modalFormState);
     closeModal();
   };
-
-  
 
   const fetchPrivacySettings = () => {
     setPrivacySettings(settingsData.privacy?.socialInteractions || []);
@@ -114,14 +109,18 @@ const Settings = () => {
     );
   };
 
+  // ...existing imports and state...
+
   return (
     <div>
       <Navbar />
-      <div className="max-w-4xl mx-auto p-4">
-        <h1 className="text-5xl font-bold mb-6">Settings</h1>
+      <div className="max-w-4xl mx-auto p-2 sm:p-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+          Settings
+        </h1>
 
-        {/* 🔹 Settings Tabs */}
-        <div className="flex flex-wrap gap-6 border-b border-gray-300 pb-2 mb-6">
+        {/* Responsive Tabs */}
+        <div className="flex flex-nowrap overflow-x-auto gap-2 sm:gap-6 border-b border-gray-300 pb-2 mb-4 sm:mb-6">
           {[
             "account",
             "privacy",
@@ -134,12 +133,12 @@ const Settings = () => {
               onClick={() => {
                 setActiveTab(tab);
                 if (tab === "privacy") fetchPrivacySettings();
-                if (tab === "messages") navigate("/message"); // Navigate to MessageComponent
-                if (tab === "notifications") navigate("/Notify"); //Navigate to notifications
+                if (tab === "messages") navigate("/message");
+                if (tab === "notifications") navigate("/Notify");
               }}
-              className={`py-2 px-4 text-lg font-medium ${
+              className={`flex-1 min-w-[120px] py-2 px-2 sm:px-4 text-base sm:text-lg font-medium whitespace-nowrap ${
                 activeTab === tab
-                  ? "border-b-4 border-blue-500 text-blue-500"
+                  ? "border-b-4 border-blue-500 text-blue-500 bg-blue-50"
                   : "text-gray-500 hover:text-blue-500"
               }`}
             >
@@ -148,7 +147,7 @@ const Settings = () => {
           ))}
         </div>
 
-        {/* 🔹 Tab Content */}
+        {/* Tab Content */}
         <div>
           {activeTab === "account" && (
             <>
@@ -159,7 +158,7 @@ const Settings = () => {
 
           {activeTab === "privacy" && (
             <div>
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">
                 Social Interactions
               </h2>
               {privacySettings.length > 0 ? (
@@ -167,26 +166,25 @@ const Settings = () => {
                   {privacySettings.map((item, index) => (
                     <div
                       key={index}
-                      className={`flex items-start justify-between px-0 py-4 border-b last:border-b-0`}
+                      className="flex flex-col sm:flex-row items-start justify-between px-0 py-3 sm:py-4 border-b last:border-b-0"
                     >
                       <div className="flex-1">
-                        <div className="font-medium text-gray-900">
+                        <div className="font-medium text-gray-900 text-base sm:text-lg">
                           {item.title}
                         </div>
                         {item.description && (
-                          <div className="text-gray-500 text-sm mt-1">
+                          <div className="text-gray-500 text-xs sm:text-sm mt-1">
                             {item.description}
                           </div>
                         )}
                       </div>
                       {/* Toggle */}
                       {item.type === "toggle" && (
-                        <label className="inline-flex items-center ml-4 cursor-pointer">
+                        <label className="inline-flex items-center mt-2 sm:mt-0 ml-0 sm:ml-4 cursor-pointer">
                           <input
                             type="checkbox"
                             checked={item.value}
                             onChange={() => {
-                              // Toggle the value in privacySettings
                               setPrivacySettings((prev) =>
                                 prev.map((setting, i) =>
                                   i === index
@@ -197,8 +195,8 @@ const Settings = () => {
                             }}
                             className="sr-only peer"
                           />
-                          <div className="w-12 h-6 bg-gray-300 rounded-full peer-checked:bg-blue-600 relative transition-colors duration-300">
-                            <div className="absolute left-0 top-0 h-6 w-6 bg-white rounded-full shadow-md transform transition-transform duration-300 peer-checked:translate-x-6"></div>
+                          <div className="w-10 h-5 sm:w-12 sm:h-6 bg-gray-300 rounded-full peer-checked:bg-blue-600 relative transition-colors duration-300">
+                            <div className="absolute left-0 top-0 h-5 w-5 sm:h-6 sm:w-6 bg-white rounded-full shadow-md transform transition-transform duration-300 peer-checked:translate-x-5 sm:peer-checked:translate-x-6"></div>
                           </div>
                         </label>
                       )}
@@ -206,7 +204,7 @@ const Settings = () => {
                       {/* Dropdown */}
                       {item.type === "dropdown" && (
                         <select
-                          className="ml-4 py-1 text-gray-700"
+                          className="ml-0 sm:ml-4 mt-2 sm:mt-0 py-1 text-gray-700 text-sm sm:text-base"
                           value={item.value}
                           onChange={(e) => {
                             const newValue = e.target.value;
@@ -229,7 +227,7 @@ const Settings = () => {
                       {/* Action */}
                       {item.type === "action" && (
                         <button
-                          className="flex items-center ml-4 text-gray-700 hover:text-blue-600 font-medium"
+                          className="flex items-center ml-0 sm:ml-4 mt-2 sm:mt-0 text-gray-700 hover:text-blue-600 font-medium"
                           onClick={() => openModal(item)}
                         >
                           <span className="ml-2 text-xl">&gt;</span>
@@ -246,7 +244,7 @@ const Settings = () => {
         </div>
       </div>
 
-      {/* ✅ External Modal Component */}
+      {/* Modal */}
       {isModalOpen && modalData && (
         <EditModal
           isOpen={isModalOpen}
