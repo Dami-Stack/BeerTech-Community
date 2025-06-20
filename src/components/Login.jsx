@@ -11,36 +11,31 @@ const Login = () => {
     navigate("/Signup");
   };
 
-    const handleLogInClick = () => {
-      navigate("/Homepage");
-    };
+  const handleLogInClick = () => {
+    navigate("/Homepage");
+  };
 
   return (
-    <div className="md:flex min-h-screen">
-      {/*Left side -Logo and Background*/}
+    <div className="flex min-h-screen w-full">
+      {/* Left side - Logo and Background */}
       <div
-        className="h-1/2 md:h-screen md:flex-1 md:flex md:items-center justify-center p-6 md:14 transition duration-500 ease-in-out bg-cover bg-center "
+        className="hidden md:flex flex-col justify-center items-center w-1/2 h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${Backimg})` }}
       >
-        <img
-          src={logo}
-          alt="AbInbev logo"
-          className="h-12 md:h-32 lg:h-3/5 mx-auto"
-        />
+        <img src={logo} alt="AbInbev logo" className="h-32 lg:h-3/5 mx-auto" />
       </div>
-      {/*Right side -Login form*/}
-      <div className="md:flex-1 flex items-center justify-center p-8 bg-white text-center transition-all duration-500 ease-in-out w-full mx-auto">
-        <div className="max-w-md w-full rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 ">
-          {/*Profile icon*/}
+      {/* Right side - Login form */}
+      <div className="flex flex-1 items-center justify-center bg-white">
+        <div className="max-w-md w-full rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105">
+          {/* Profile icon */}
           <div className="flex justify-center items-center mb-4">
             <img src={User} alt="User" />
           </div>
           <h2 className="text-center text-lg font-semibold mb-6 uppercase">
             user login
           </h2>
-          {/*Login form*/}
+          {/* Login form */}
           <form>
-            {/*Email field*/}
             <div className="mb-4">
               <input
                 type="text"
@@ -49,7 +44,6 @@ const Login = () => {
                 required
               />
             </div>
-            {/*password field */}
             <div className="mb-4">
               <input
                 type="password"
@@ -58,31 +52,32 @@ const Login = () => {
                 required
               />
             </div>
-            {/*Login Btn*/}
             <button
               type="submit"
-              className=" bg-blue-400 text-white px-3 py-1 rounded-lg 
-                        hover:bg-gray-400  hover:scale-105 transitio duration-200"
+              className="bg-sky-400 text-white font-bold px-4 py-1 rounded-full hover:bg-gray-400 hover:scale-105 transition duration-200"
             >
               Log in
             </button>
-            {/*Additional links*/}
-            <div className="text-center mt-4 ">
-              <a href="#" className="text-blue-500 hover:underline"
-               onClick={handleLogInClick} 
+          </form>
+          <div className="text-left w-full mt-4">
+            <div>
+              <a
+                href="#"
+                className="text-blue-500 hover:underline"
+                onClick={handleLogInClick}
               >
                 Forgot Password?
               </a>
             </div>
-          </form>
-          <div className="text-sm mt-2 space-x-1 flex w-fit mx-auto items-center">
-            <p>New to AbInbev Community?</p>
-            <button
-              className="text-white hover:scale-105 bg-blue-400 py-1 px-3 rounded-lg hover:bg-gray-400"
-              onClick={handleSignUpClick}
-            >
-              Sign up
-            </button>
+            <span>
+              New to ABInBev?
+              <span
+                className="text-sky-500 hover:underline cursor-pointer ml-1"
+                onClick={handleSignUpClick}
+              >
+                Sign up
+              </span>
+            </span>
           </div>
         </div>
       </div>

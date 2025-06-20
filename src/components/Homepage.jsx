@@ -55,9 +55,9 @@ const Homepage = () => {
       </div>
 
       {/* Main layout for desktop/tablet */}
-      <div className=" sm:flex flex-1 min-h-0">
+      <div className="sm:flex flex-1 min-h-0">
         {/* Sidebar as column (visible on tablet and up) */}
-        <div className="w-1/4 max-w-xs h-full">
+        <div className="hidden md:block w-1/4 max-w-xs h-full">
           <Sidebar isSidebarOpen={true} toggleSidebar={toggleSidebar} />
         </div>
 

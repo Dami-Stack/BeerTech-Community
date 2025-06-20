@@ -42,6 +42,9 @@ const Sidebar = () => {
   const handleHome = () => navigate("/Homepage");
   const handleExplore = () => navigate("/Explore");
   const handleNavigate = (id) => navigate(`/community/${id}`);
+  const handleChatroomClick = () => {
+    navigate("/Message");
+  };
 
   // Close sidebar when clicking overlay
   const handleOverlayClick = () => setIsSidebarOpen(false);
@@ -83,7 +86,6 @@ const Sidebar = () => {
         >
           <FaTimes className="text-xl" />
         </button>
-
         <div className="mb-6 mt-8 md:mt-0">
           <button
             className="flex items-center space-x-2 py-2 px-4 hover:bg-gray-100 rounded-lg w-full"
@@ -100,36 +102,51 @@ const Sidebar = () => {
             <span>Explore</span>
           </button>
         </div>
-
         <hr className="border-t border-gray-400" />
-
         <h2 className="text-yellow-500 font-semibold mb-4 uppercase mt-4">
           Communities
         </h2>
-
+        {/* from here */}
+        
         <div
           className="flex-grow overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 h-full pr-2"
           style={{ maxHeight: "calc(100vh - 200px)" }}
         >
           {sections.map((section) => (
             <div key={section.id} className="mb-2 text-sm">
-              <button
-                className="flex items-center py-2 px-4 w-full hover:bg-gray-100 rounded-lg"
-                onClick={() => handleNavigate(section.id)}
-              >
-                <img
-                  src={section.icon}
-                  alt={`${section.name} Icon`}
-                  className="w-5 h-5 mr-2"
-                />
-                <span className="text-xs md:text-base">{section.name}</span>
-              </button>
+              {section.name === "Chatroom" ? (
+                <button
+                  className="flex items-center py-2 px-4 w-full hover:bg-gray-100 rounded-lg"
+                  onClick={handleChatroomClick}
+                >
+                  <img
+                    src={section.icon}
+                    alt={`${section.name} Icon`}
+                    className="w-5 h-5 mr-2"
+                  />
+                  <span className="text-xs md:text-base">{section.name}</span>
+                </button>
+              ) : (
+                <button
+                  className="flex items-center py-2 px-4 w-full hover:bg-gray-100 rounded-lg"
+                  onClick={() => handleNavigate(section.id)}
+                >
+                  <img
+                    src={section.icon}
+                    alt={`${section.name} Icon`}
+                    className="w-5 h-5 mr-2"
+                  />
+                  <span className="text-xs md:text-base">{section.name}</span>
+                </button>
+              )}
               {["Explore", "Blogs", "Chatroom"].includes(section.name) && (
                 <hr className="my-4 border-t border-gray-400" />
               )}
             </div>
           ))}
         </div>
+      
+        {/* end here */}
       </aside>
     </>
   );
